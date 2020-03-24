@@ -1,0 +1,33 @@
+<script>
+    const playerSelection = 'Rock';
+    const computerSelection = computerPlay();
+
+    console.log(playRound(playerSelection, computerSelection));
+
+    function computerPlay(){
+        let compSelection;
+        const randomNum = getRandomInt(3);
+        if(randomNum==0){
+            return compSelection="Rock";
+        }else if(randomNum==1){
+            return compSelection="Paper";
+        }else{
+            return compSelection="Scissors";
+        }
+    }
+
+    function playRound(playerSelection, computerSelection){
+        if((playerSelection.toLowerCase()=='rock' && computerSelection.toLowerCase()=='scissors') || (playerSelection.toLowerCase()=='paper'
+            && computerSelection.toLowerCase()=='rock') || (playerSelection.toLowerCase()=='scissors' && computerSelection.toLowerCase()=='paper')){
+                return `You Won! ${playerSelection} beats ${computerSelection}`;
+            }else if(playerSelection.toLowerCase()==computerSelection.toLowerCase()){
+                return `Tied! You both chose ${playerSelection}`;
+            }else{
+                return `You Lost! ${computerSelection} beats ${playerSelection}`;
+            }
+    }
+
+    function getRandomInt(max){
+        return Math.floor(Math.random() * Math.floor(max));
+}
+</script>
