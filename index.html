@@ -1,30 +1,59 @@
 <script>
-    const playerSelection = 'Rock';
-    const computerSelection = computerPlay();
+    let playerSelection;
+    let computerSelection;
+    let playerScore=0;
+    let computerScore=0;
 
-    console.log(playRound(playerSelection, computerSelection));
+    game();
+
+    function playerPrompt(){
+        let choice = prompt("Choose: 'Rock', 'Paper', or 'Scissors'");
+        if(choice.toLowerCase() != "rock" && choice.toLowerCase() != "paper" && choice.toLowerCase() != 'scissors'){
+            alert("Invalid choice, Try again!");
+            playerPrompt();
+        }
+
+        return choice;
+    }
 
     function computerPlay(){
-        let compSelection;
         const randomNum = getRandomInt(3);
         if(randomNum==0){
-            return compSelection="Rock";
+            return "Rock";
         }else if(randomNum==1){
-            return compSelection="Paper";
+            return "Paper";
         }else{
-            return compSelection="Scissors";
+            return "Scissors";
         }
     }
 
     function playRound(playerSelection, computerSelection){
         if((playerSelection.toLowerCase()=='rock' && computerSelection.toLowerCase()=='scissors') || (playerSelection.toLowerCase()=='paper'
             && computerSelection.toLowerCase()=='rock') || (playerSelection.toLowerCase()=='scissors' && computerSelection.toLowerCase()=='paper')){
+                playerScore++;
                 return `You Won! ${playerSelection} beats ${computerSelection}`;
             }else if(playerSelection.toLowerCase()==computerSelection.toLowerCase()){
                 return `Tied! You both chose ${playerSelection}`;
             }else{
+                computerScore++;
                 return `You Lost! ${computerSelection} beats ${playerSelection}`;
             }
+    }
+
+    function game(){
+        for(i=0; i<5; i++){
+            playerSelection = playerPrompt();
+            computerSelection = computerPlay();
+            console.log(playRound(playerSelection, computerSelection));
+            console.log(`Round ${i+1} Score: ${playerScore} - ${computerScore}`);
+            if(i==4 && playerScore>computerScore){
+                console.log("You Won!");
+            }else if(i==4 && computerScore>playerScore){
+                console.log("The computer won...");
+            }else if(i==4 && computerScore==playerScore){
+                console.log("You tied with the computer! You gotta break the tie now...");
+            }
+        }
     }
 
     function getRandomInt(max){
