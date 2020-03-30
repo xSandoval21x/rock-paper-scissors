@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Carter+One|Roboto:500&display=swap" rel="stylesheet">
+        <link href="style/uistyle.css" type="text/css" rel="stylesheet">
+        <title>Rock, Paper, Scissors Match</title>
+        <h1 id="title">Rock, Paper, Scissors</h1>
+    </head>
+    <body>
+        <h2>Human versus Machine...</h2>
+        <div id="intro">
+            <p>
+                On this glorius day, you have a chance to prove yourself!<br>
+                Do you have what it takes to beat a computer at such a simple
+                game of Rock, Paper, Scissors?<br>
+                Use the buttons below to take your pick and then hit "Play!"<br>
+                You got 5 chances! Let's see what you've got...
+            </p>
+        </div>
+        <div id="buttons">
+            <button type="button" name="Rock">Rock</button>
+            <button type="button" name="Paper">Paper</button>
+            <button type="button" name="Scissors">Scissors</button>
+
+            <button type="button" name="play">Play!</button>
+        </div>
+        <div id="scoreboard">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan= "2" id="score">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="you-scoreboard">You</td>
+                        <td id="computer-scoreboard">Wretched Machine!</td>
+                    </tr>
+                    <tr>
+                        <td id="player-score"></td>
+                        <td id="computer-score"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id='container'></div>
+        <script src="script/game.js"></script>
+    </body>
+</html>
